@@ -12,7 +12,7 @@
   <link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png" />
   <link rel="apple-touch-icon" href="./icons/icon-180.png" />
   <link rel="stylesheet" href="./styles.css" />
-  <title>КартулиГО — грузинский с нуля</title>
+  <title>КартулиГО — учим грузинский играючи</title>
 </head>
 <body>
   <div id="app"><div class="boot">გამარჯობა! 🇬🇪</div></div>
@@ -21,6 +21,7 @@
   <script>
     if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
       window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
+      let updating = false; navigator.serviceWorker.addEventListener('controllerchange', () => { if (!updating) { updating = true; location.reload(); } });
     }
   </script>
 </body>
